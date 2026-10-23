@@ -54,74 +54,123 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 
 /* ---------------- library ---------------- */
 #lib{position:fixed;inset:0;overflow:auto;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
-.libhead{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--desk) 88%,transparent);backdrop-filter:blur(10px);
-  display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px max(20px,env(safe-area-inset-right,0px)) 12px max(20px,env(safe-area-inset-left,0px))}
-.brand{display:flex;align-items:center;gap:9px;margin-right:auto}
-.brand b{font:600 26px/1 var(--serif);letter-spacing:-.01em}
-.brand svg{width:26px;height:26px;stroke:var(--accent)}
-.libsearch{flex:0 1 240px;min-width:140px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card)}
-.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-weight:600;min-height:40px;white-space:nowrap}
+.libhead{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--desk) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px max(24px,env(safe-area-inset-right,0px)) 12px max(24px,env(safe-area-inset-left,0px));border-bottom:1px solid transparent}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand .logo{width:36px;height:36px;border-radius:10px;background:var(--accent);display:grid;place-items:center;box-shadow:0 4px 12px -4px color-mix(in srgb,var(--accent) 70%,transparent)}
+.brand .logo svg{width:22px;height:22px;stroke:var(--accent-ink)}
+.brand b{font:600 25px/1 var(--serif);letter-spacing:-.01em}
+.libintro{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:18px max(24px,env(safe-area-inset-right,0px)) 6px max(24px,env(safe-area-inset-left,0px))}
+.libintro h1{margin:0;font:600 32px/1.1 var(--serif);letter-spacing:-.015em}
+.libintro p{margin:4px 0 0;color:var(--muted);font-size:13.5px}
+.libintro .grow{margin-right:auto;min-width:0}
+.libsearch{flex:0 1 260px;min-width:160px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:11px;border:1px solid var(--line);background:var(--card);font-weight:600;min-height:42px;white-space:nowrap}
 .btn:hover{border-color:var(--muted)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 6px 16px -8px color-mix(in srgb,var(--accent) 80%,transparent)}
 .btn.danger{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 40%,var(--line))}
 .btn.ghost{background:transparent;border-color:transparent}
 .btn svg.i{width:19px;height:19px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:26px 22px;
-  padding:10px max(20px,env(safe-area-inset-right,0px)) 60px max(20px,env(safe-area-inset-left,0px))}
-.nbcard{display:flex;flex-direction:column;gap:8px;min-width:0;text-align:left}
-.cover{position:relative;aspect-ratio:1/1.414;border-radius:4px 10px 10px 4px;background:#fff;box-shadow:var(--shadow);overflow:hidden;
-  border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
-.cover img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:linear-gradient(90deg,rgba(0,0,0,.14),rgba(0,0,0,0));z-index:1}
-.cover .tag{position:absolute;right:8px;bottom:8px;z-index:1;font:700 10px var(--sans);letter-spacing:.08em;background:rgba(20,24,32,.72);color:#fff;padding:3px 6px;border-radius:5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:30px 24px;
+  padding:16px max(24px,env(safe-area-inset-right,0px)) 70px max(24px,env(safe-area-inset-left,0px))}
+.nbcard{display:flex;flex-direction:column;gap:10px;min-width:0;text-align:left}
+.cover{position:relative;display:block;width:100%;aspect-ratio:1/1.414;border-radius:3px 10px 10px 3px;background:#fff;overflow:visible;
+  box-shadow:0 1px 2px rgba(20,24,32,.1),0 12px 26px -14px rgba(20,24,32,.45);transition:transform .15s}
+.cover:hover{transform:translateY(-2px)}
+.cover .pp{position:absolute;inset:0;border-radius:inherit;overflow:hidden;background:#fff;border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.cover .pp img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.cover::after{content:"";position:absolute;inset:5px -5px -5px 5px;border-radius:inherit;background:color-mix(in srgb,var(--card) 92%,var(--desk));box-shadow:0 1px 2px rgba(20,24,32,.12);z-index:-1}
+.cover .spine{position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(90deg,rgba(0,0,0,.16),rgba(0,0,0,0));z-index:1;border-radius:3px 0 0 3px}
+.cover .tag{position:absolute;right:8px;bottom:8px;z-index:2;font:700 10px var(--sans);letter-spacing:.08em;background:rgba(20,24,32,.78);color:#fff;padding:3px 7px;border-radius:6px}
 .nbmeta{display:flex;align-items:flex-start;gap:6px}
-.nbmeta .t{font:600 15.5px/1.25 var(--serif);word-break:break-word}
-.nbmeta .d{font-size:12px;color:var(--muted);margin-top:2px}
-.nbmeta .more{margin-left:auto;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:var(--muted)}
+.nbmeta .t{font:600 16px/1.25 var(--serif);word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nbmeta .d{font-size:12.5px;color:var(--muted);margin-top:3px}
+.nbmeta .more{margin-left:auto;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:var(--muted);flex:0 0 auto}
 .nbmeta .more:hover{background:var(--soft)}
-.newcard .cover{display:grid;place-items:center;background:transparent;border:2px dashed var(--line);box-shadow:none;color:var(--muted)}
-.newcard .cover::before{display:none}
-.newcard .cover span{display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:600}
-.newcard svg.i{width:34px;height:34px}
-.warnbar{margin:0 20px 10px;padding:10px 14px;border-radius:10px;background:color-mix(in srgb,var(--danger) 12%,var(--card));border:1px solid color-mix(in srgb,var(--danger) 40%,var(--line));font-size:13.5px}
+.newcard .cover{display:grid;place-items:center;background:transparent;border:2px dashed color-mix(in srgb,var(--accent) 35%,var(--line));box-shadow:none;color:var(--accent)}
+.newcard .cover::after{display:none}
+.newcard .cover span{display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:600}
+.newcard .cover .plus{width:54px;height:54px;border-radius:50%;background:var(--soft);display:grid;place-items:center}
+.newcard svg.i{width:28px;height:28px}
+.newcard .nbmeta .d{color:var(--muted)}
+.warnbar{margin:4px 24px 10px;padding:10px 14px;border-radius:12px;background:color-mix(in srgb,var(--danger) 12%,var(--card));border:1px solid color-mix(in srgb,var(--danger) 40%,var(--line));font-size:13.5px}
 .empty{grid-column:1/-1;color:var(--muted);padding:30px 0}
 
-/* ---------------- editor ---------------- */
+/* ---------------- editor ----------------
+   Two clearly separate zones: the app bar (this notebook: back, name, undo, share)
+   and the tool row (what the pen does: tools in a dock + options for the chosen tool). */
 #ed{position:fixed;inset:0;display:flex;flex-direction:column}
-.bar{flex:0 0 auto;display:flex;align-items:center;gap:4px;height:var(--bar-h);padding:0 max(8px,env(safe-area-inset-right,0px)) 0 max(8px,env(safe-area-inset-left,0px));
-  background:var(--bar);border-bottom:1px solid var(--line);margin-top:env(safe-area-inset-top,0px)}
-.bar .grp{display:flex;align-items:center;gap:2px}
-.bar .mid{flex:1 1 auto;justify-content:center;overflow-x:auto;scrollbar-width:none;min-width:0}
-.bar .mid::-webkit-scrollbar{display:none}
+.appbar{flex:0 0 auto;display:flex;align-items:center;gap:8px;height:56px;margin-top:env(safe-area-inset-top,0px);
+  padding:0 max(10px,env(safe-area-inset-right,0px)) 0 max(6px,env(safe-area-inset-left,0px));background:var(--bar);border-bottom:1px solid var(--line)}
+.navback{display:inline-flex;align-items:center;gap:2px;height:40px;padding:0 10px 0 4px;border-radius:11px;color:var(--accent);font-weight:600;flex:0 0 auto}
+.navback:hover{background:var(--soft)}
+.navback svg.i{width:24px;height:24px}
+.doc{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1 1 auto;padding-left:6px;border-left:1px solid var(--line)}
+.title{display:block;max-width:100%;padding:2px 6px;border-radius:7px;text-align:left;font:600 17px/1.25 var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.title:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.meta{padding:0 6px;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px}
+.meta .kind{font:700 9.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:5px;background:var(--soft);color:var(--accent)}
+.meta .saved::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#2E9E5B;margin-right:5px;vertical-align:1px}
+.meta .saving::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#D9961F;margin-right:5px;vertical-align:1px}
+.acts{display:flex;align-items:center;gap:2px;flex:0 0 auto}
 .tb{position:relative;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--ink);flex:0 0 auto}
 .tb:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
 .tb[aria-pressed="true"]{background:var(--soft);color:var(--accent)}
-.tb:disabled{opacity:.32;cursor:default}
-.tb .dot{position:absolute;right:6px;bottom:6px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--bar)}
-.sep{width:1px;height:26px;background:var(--line);margin:0 5px;flex:0 0 auto}
-.title{display:flex;align-items:center;min-width:0;max-width:220px;padding:6px 8px;border-radius:8px;font:600 16px var(--serif);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.title:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
-.sub{flex:0 0 auto;display:flex;align-items:center;gap:6px;min-height:46px;padding:4px max(10px,env(safe-area-inset-right,0px)) 4px max(10px,env(safe-area-inset-left,0px));
-  background:var(--bar2);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;white-space:nowrap}
-.sub::-webkit-scrollbar{display:none}
-.sub .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 2px 0 4px}
-.seg{display:inline-flex;gap:2px;background:color-mix(in srgb,var(--ink) 7%,transparent);padding:3px;border-radius:10px;flex:0 0 auto}
-.seg button{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
-.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.seg svg.i{width:18px;height:18px}
-.sw{width:28px;height:28px;border-radius:50%;flex:0 0 auto;border:2px solid var(--bar2);box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 22%,transparent)}
+.tb:disabled{opacity:.3;cursor:default}
+.vsep,.sep{width:1px;height:26px;background:var(--line);margin:0 6px;flex:0 0 auto}
+.sharebtn{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px 0 11px;margin-left:4px;border-radius:11px;background:var(--accent);color:var(--accent-ink);font-weight:600;flex:0 0 auto;
+  box-shadow:0 6px 14px -8px color-mix(in srgb,var(--accent) 80%,transparent)}
+.sharebtn svg.i{width:19px;height:19px}
+
+.toolrow{flex:0 0 auto;overflow-x:auto;scrollbar-width:none;background:var(--bar2);border-bottom:1px solid var(--line)}
+.toolrow::-webkit-scrollbar{display:none}
+.toolrow-in{display:flex;align-items:center;gap:12px;width:max-content;margin:0 auto;padding:7px max(12px,env(safe-area-inset-right,0px)) 7px max(12px,env(safe-area-inset-left,0px))}
+.dock{display:flex;align-items:center;gap:2px;padding:4px;border-radius:16px;background:var(--card);border:1px solid var(--line);box-shadow:0 1px 2px rgba(20,24,32,.05),0 6px 16px -10px rgba(20,24,32,.35)}
+.tool{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;width:56px;height:50px;border-radius:12px;color:var(--ink);flex:0 0 auto}
+.tool .tl{font-size:10.5px;font-weight:600;color:var(--muted);line-height:1}
+.tool:hover{background:color-mix(in srgb,var(--ink) 5%,transparent)}
+.tool[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.tool[aria-pressed="true"] .tl{color:var(--accent-ink)}
+.tool .cap{position:absolute;top:6px;right:11px;width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 2px var(--card)}
+.tool[aria-pressed="true"] .cap{box-shadow:0 0 0 2px var(--accent)}
+.dock .dsep{width:1px;height:30px;background:var(--line);margin:0 3px}
+.opts{display:flex;align-items:center;gap:8px;min-height:50px}
+.chip{display:inline-flex;align-items:center;gap:7px;height:40px;padding:0 10px 0 9px;border-radius:11px;border:1px solid var(--line);background:var(--card);font-size:13.5px;font-weight:600;flex:0 0 auto}
+.chip:hover{border-color:var(--muted)}
+.chip .chev{width:14px;height:14px;opacity:.6}
+.chip svg.i{width:19px;height:19px}
+.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--soft)}
+.swatches{display:flex;align-items:center;gap:5px;padding:4px 6px;border-radius:13px;background:var(--card);border:1px solid var(--line)}
+.sw{width:28px;height:28px;border-radius:50%;flex:0 0 auto;border:2px solid var(--card);box-shadow:0 0 0 1px color-mix(in srgb,var(--ink) 20%,transparent);display:grid;place-items:center}
 .sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--accent)}
+.sw.more{background:conic-gradient(#e74c3c,#f1c40f,#2ecc71,#3498db,#9b59b6,#e74c3c)}
 .sw.custom{background:conic-gradient(#e74c3c,#f1c40f,#2ecc71,#3498db,#9b59b6,#e74c3c);position:relative;overflow:hidden}
 .sw.custom input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.sz{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;flex:0 0 auto}
+.sizes{display:flex;align-items:center;gap:2px;padding:3px;border-radius:13px;background:var(--card);border:1px solid var(--line)}
+.sz{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex:0 0 auto}
 .sz i{display:block;border-radius:50%;background:var(--ink)}
 .sz[aria-pressed="true"]{background:var(--soft)}
-.sub input[type=range]{width:120px;accent-color:var(--accent);flex:0 0 auto}
-.sub .val{font-size:12px;color:var(--muted);min-width:34px;font-variant-numeric:tabular-nums}
-.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);padding:6px 8px;border-radius:8px;flex:0 0 auto}
-.chk[aria-pressed="true"]{color:var(--accent);background:var(--soft)}
-.chk .box{width:16px;height:16px;border-radius:4px;border:1.5px solid currentColor;display:grid;place-items:center;font-size:11px;line-height:1}
-.hint{font-size:12.5px;color:var(--muted);padding:0 6px}
+.sz[aria-pressed="true"] i{background:var(--accent)}
+.seg{display:inline-flex;gap:2px;background:color-mix(in srgb,var(--ink) 7%,transparent);padding:3px;border-radius:11px;flex:0 0 auto}
+.seg button{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:8px;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg svg.i{width:18px;height:18px}
+.chk{display:inline-flex;align-items:center;gap:7px;height:40px;font-size:13px;font-weight:600;color:var(--muted);padding:0 11px;border-radius:11px;border:1px solid var(--line);background:var(--card);flex:0 0 auto}
+.chk[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--soft)}
+.chk .box{width:16px;height:16px;border-radius:5px;border:1.5px solid currentColor;display:grid;place-items:center;font-size:11px;line-height:1}
+.hint{font-size:13px;color:var(--muted);max-width:420px;white-space:normal;line-height:1.35}
+/* popover pieces */
+.penlist{display:grid;gap:2px;min-width:290px}
+.penrow{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;text-align:left}
+.penrow:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.penrow[aria-pressed="true"]{background:var(--soft);color:var(--accent)}
+.penrow .nm{font-weight:600;font-size:14px;min-width:96px}
+.penrow canvas{width:150px;height:30px;flex:0 0 auto}
+.palette{display:grid;grid-template-columns:repeat(6,32px);gap:9px;padding:10px}
+.palette .sw{width:32px;height:32px}
+.pophead{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 10px 0}
+.szpop{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.szpop input{width:190px;accent-color:var(--accent)}
 
 #stage{position:relative;flex:1 1 auto;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;background:var(--desk)}
 #stage canvas{position:absolute;left:0;top:0;transform-origin:0 0}
@@ -183,22 +232,32 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes up{from{transform:translate(-50%,16px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media (max-width:1100px){
-  .sub .seg button span{display:none}
-  .sub .seg button{padding:6px 9px}
-  .sub .sw{width:26px;height:26px}
-  .sub input[type=range]{width:90px}
-  .sub .hint{white-space:normal;min-width:220px;line-height:1.3}
+@media (max-width:1060px){
+  .navback .lb{display:none}
+  .tool{width:46px;height:44px}
+  .tool .tl{display:none}
+  .tool .cap{top:5px;right:8px}
+  .chip[data-penchip] span{display:none}
+  .swatches{gap:4px;padding:4px 5px}
+  .swatches .sw{width:26px;height:26px}
+  .swatches .sw[data-pc]:nth-child(n+6){display:none}
+  .sizes [data-szmore]{display:none}
+  .toolrow-in{gap:10px}
+  .opts{gap:6px;min-height:44px}
 }
-@media (max-width:899px){ .sub input[type=range],.sub .val{display:none} }
-@media (max-width:640px){
-  .bar{flex-wrap:wrap;height:auto;row-gap:2px;padding-top:3px;padding-bottom:3px}
-  .bar>.grp:last-child{margin-left:auto}
-  .bar .mid{order:3;flex:1 1 100%;justify-content:space-between;border-top:1px solid var(--line);padding-top:2px}
-  .title{max-width:110px;font-size:14.5px}
+@media (max-width:760px){
+  .tool{width:42px}
+  .sharebtn span{display:none}
+  .sharebtn{padding:0 11px}
+  .hint{max-width:240px;font-size:12px}
+}
+@media (max-width:560px){
+  .acts .vsep,#b-paper{display:none}
   .tb{width:38px;height:38px}
-  .grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:20px 14px}
-  .brand b{font-size:22px}
+  .libintro h1{font-size:26px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:22px 16px}
+  .brand b{font-size:21px}
+  .libhead .btn span{display:none}
 }
 
 </style>
@@ -206,35 +265,43 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 <body>
 <section id="lib" aria-label="Notebooks">
   <div class="libhead">
-    <div class="brand"><svg class="i" viewBox="0 0 24 24"><path d="M12 2.6 17.2 9 12 21.4 6.8 9z"/><path d="M12 9.2v4.6"/><circle cx="12" cy="15.4" r=".9"/></svg><b>Inkpad</b></div>
-    <input id="libq" class="libsearch" type="search" placeholder="Search notebooks" aria-label="Search notebooks" autocomplete="off">
+    <div class="brand"><span class="logo"><svg class="i" viewBox="0 0 24 24"><path d="M12 2.6 17.2 9 12 21.4 6.8 9z"/><path d="M12 9.2v4.6"/><circle cx="12" cy="15.4" r=".9"/></svg></span><b>Inkpad</b></div>
     <button class="btn" id="b-import"></button>
     <button class="btn primary" id="b-new"></button>
     <button class="btn ghost" id="b-libmore" aria-label="More"></button>
+  </div>
+  <div class="libintro">
+    <div class="grow"><h1>Notebooks</h1><p id="libsum">Everything you write is saved on this tablet.</p></div>
+    <input id="libq" class="libsearch" type="search" placeholder="Search notebooks" aria-label="Search notebooks" autocomplete="off">
   </div>
   <div id="libwarn"></div>
   <div class="grid" id="nbgrid"></div>
 </section>
 
 <section id="ed" hidden aria-label="Notebook editor">
-  <div class="bar" id="bar">
-    <div class="grp">
-      <button class="tb" id="b-back" aria-label="Back to notebooks" title="Notebooks"></button>
-      <button class="title" id="b-title" title="Rename"></button>
+  <header class="appbar" id="bar">
+    <button class="navback" id="b-back" aria-label="Back to notebooks" title="Notebooks"></button>
+    <div class="doc">
+      <button class="title" id="b-title" title="Rename notebook"></button>
+      <div class="meta" id="b-meta"></div>
     </div>
-    <div class="grp mid" id="tools" role="toolbar" aria-label="Tools"></div>
-    <div class="grp">
+    <div class="acts">
       <button class="tb" id="b-undo" aria-label="Undo" title="Undo (two-finger tap)"></button>
       <button class="tb" id="b-redo" aria-label="Redo" title="Redo (three-finger tap)"></button>
-      <span class="sep"></span>
+      <span class="vsep"></span>
       <button class="tb" id="b-hand" aria-label="Pen only: fingers scroll" title="Pen only — fingers scroll and zoom"></button>
-      <button class="tb" id="b-paper" aria-label="Paper and pages" title="Paper"></button>
-      <button class="tb" id="b-share" aria-label="Share or export" title="Share / export"></button>
+      <button class="tb" id="b-paper" aria-label="Paper" title="Paper"></button>
+      <button class="sharebtn" id="b-share" aria-label="Share or export" title="Share / export"></button>
       <button class="tb" id="b-more" aria-label="More"></button>
     </div>
+  </header>
+  <div class="toolrow" id="toolrow">
+    <div class="toolrow-in">
+      <div class="dock" id="tools" role="toolbar" aria-label="Tools"></div>
+      <div class="opts" id="sub" role="toolbar" aria-label="Tool options"></div>
+    </div>
   </div>
-  <div class="sub" id="sub" role="toolbar" aria-label="Tool options"></div>
-  <div id="stage">
+<div id="stage">
     <canvas id="base"></canvas>
     <canvas id="live"></canvas>
     <div class="float" id="fl-left"><button class="pill" id="b-zoom" title="Fit page width">100%</button></div>
@@ -887,6 +954,7 @@ let saveTimer = 0, nbDirty = false, coverDirty = false;
 function touch(pg) {
   if (pg) { dirty.add(pg); if (pg === PAGES[0]) coverDirty = true; }
   nbDirty = true;
+  if (typeof UI !== 'undefined') UI.saveState('saving');
   clearTimeout(saveTimer); saveTimer = setTimeout(flush, 450);
 }
 const serialPage = pg => ({id: pg.id, nb: NB.id, w: pg.w, h: pg.h, tpl: pg.tpl, color: pg.color, pdf: pg.pdf, items: pg.items.map(cleanItem)});
@@ -897,6 +965,7 @@ async function flush() {
   try {
     for (const pg of pgs) if (PAGES.includes(pg)) await DB.put('pg', serialPage(pg));
     if (nbDirty) { nbDirty = false; NB.updated = Date.now(); NB.pages = PAGES.map(p => p.id); await DB.put('nb', NB); }
+    if (!dirty.size && !nbDirty) UI.saveState('saved');
   } catch (e) {
     console.error(e);
     pgs.forEach(p => dirty.add(p));
@@ -1880,58 +1949,113 @@ async function insertImage(file) {
 /* =====================================================================
    Inkpad · toolbar, panels and the notebook library
    ===================================================================== */
+const PEN_FAV = ['#1C2027', '#1F4FBF', '#C0392B', '#1E7D3A', '#D9661F', '#7B3FB5'];
+const SHAPES = [['line', 'Line'], ['arrow', 'Arrow'], ['rect', 'Rectangle'], ['ellipse', 'Ellipse'], ['tri', 'Triangle']];
+const TEXT_SIZES = [[18, 'Small'], [26, 'Normal'], [36, 'Large'], [52, 'Title']];
 const UI = (() => {
   const tools = $('#tools'), sub = $('#sub');
-  let lastPI = '', lastZI = '';
-  function toolBtn(id, ic, label, dot) {
-    return `<button class="tb" data-tool="${id}" aria-label="${label}" title="${label}" aria-pressed="${SET.tool === id}">${icon(ic)}${dot ? `<span class="dot" style="background:${dot}"></span>` : ''}</button>`;
+  let lastPI = '', lastZI = '', status = 'saved';
+  const chev = '<svg class="i chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+  function toolBtn(id, ic, label, short, cap) {
+    return `<button class="tool" data-tool="${id}" aria-label="${label}" title="${label}" aria-pressed="${SET.tool === id}">${icon(ic)}<span class="tl">${short}</span>${cap ? `<span class="cap" style="background:${cap}"></span>` : ''}</button>`;
   }
   function renderTools() {
-    tools.innerHTML = toolBtn('pen', SET.pen.type, PEN[SET.pen.type].label, SET.pen.color) + toolBtn('hl', 'hl', 'Highlighter', SET.hl.color) +
-      toolBtn('eraser', 'eraser', 'Eraser') + toolBtn('lasso', 'lasso', 'Lasso select') + toolBtn('shape', 'shape', 'Shapes') +
-      toolBtn('text', 'text', 'Text') + `<button class="tb" data-tool="image" aria-label="Insert picture" title="Insert picture">${icon('image')}</button>`;
+    tools.innerHTML = toolBtn('pen', SET.pen.type, PEN[SET.pen.type].label, 'Pen', SET.pen.color) + toolBtn('hl', 'hl', 'Highlighter', 'Marker', SET.hl.color) +
+      toolBtn('eraser', 'eraser', 'Eraser', 'Eraser') + '<span class="dsep"></span>' +
+      toolBtn('lasso', 'lasso', 'Lasso select', 'Select') + toolBtn('shape', 'shape', 'Shapes', 'Shapes') +
+      toolBtn('text', 'text', 'Text', 'Text') + `<button class="tool" data-tool="image" aria-label="Insert picture" title="Insert picture">${icon('image')}<span class="tl">Picture</span></button>`;
   }
   tools.addEventListener('click', e => {
     const b = e.target.closest('[data-tool]'); if (!b) return;
     const t = b.dataset.tool;
     if (t === 'image') { $('#f-img').click(); return; }
+    if (t === SET.tool && t === 'pen') { penPop($('[data-penchip]', sub) || b); return; }   // tap again: choose pen
     setTool(t);
   });
-  const swatches = (list, cur, attr) => list.map(c => `<button class="sw" ${attr}="${c}" style="background:${c}" aria-label="Colour ${c}" aria-pressed="${cur.toLowerCase() === c.toLowerCase()}"></button>`).join('');
-  const customSw = attr => `<label class="sw custom" title="Custom colour"><input type="color" data-custom="${attr}" aria-label="Custom colour"></label>`;
-  const sizes = (pre, cur, rng, attr) => pre.map(v => `<button class="sz" ${attr}="${v}" aria-label="Size ${v}" aria-pressed="${Math.abs(cur - v) < 0.01}"><i style="width:${clamp(v * (attr === 'data-esz' ? 0.42 : 1.15), 3, 22)}px;height:${clamp(v * (attr === 'data-esz' ? 0.42 : 1.15), 3, 22)}px"></i></button>`).join('') +
-    `<input type="range" min="${rng[0]}" max="${rng[1]}" step="0.2" value="${cur}" ${attr}-r aria-label="Size"><span class="val">${(+cur).toFixed(cur < 10 ? 1 : 0)}</span>`;
+  /* ----- option groups ----- */
+  const sw = (c, cur, attr) => `<button class="sw" ${attr}="${c}" style="background:${c}" aria-label="Colour ${c}" aria-pressed="${cur.toLowerCase() === c.toLowerCase()}"></button>`;
+  function penSwatches() {
+    const list = PEN_FAV.includes(SET.pen.color) ? PEN_FAV : [SET.pen.color].concat(PEN_FAV.slice(0, 5));
+    return `<div class="swatches" role="group" aria-label="Colour">${list.map(c => sw(c, SET.pen.color, 'data-pc')).join('')}<button class="sw more" data-morecol aria-label="More colours" title="More colours"></button></div>`;
+  }
+  function hlSwatches() {
+    return `<div class="swatches" role="group" aria-label="Colour">${HL_COLORS.map(c => sw(c, SET.hl.color, 'data-hc')).join('')}<label class="sw custom" title="Custom colour"><input type="color" data-custom="hc" aria-label="Custom highlighter colour"></label></div>`;
+  }
+  function sizes(pre, cur, attr, scale) {
+    return `<div class="sizes" role="group" aria-label="Size">${pre.map(v => { const d = clamp(v * scale, 3, 20); return `<button class="sz" ${attr}="${v}" aria-label="Size ${v}" title="Size — tap again for fine control" aria-pressed="${Math.abs(cur - v) < 0.01}"><i style="width:${d}px;height:${d}px"></i></button>`; }).join('')}
+      <button class="sz" data-szmore="${attr}" aria-label="Exact size" title="Exact size" aria-pressed="${!pre.some(v => Math.abs(cur - v) < 0.01)}" style="font-size:11px;font-weight:700;color:var(--muted)">${(+cur).toFixed(cur < 10 ? 1 : 0)}</button></div>`;
+  }
   function renderSub() {
     const t = SET.tool; let h = '';
-    const penColours = () => swatches(PEN_COLORS.concat(SET.custom.filter(c => !PEN_COLORS.includes(c))), SET.pen.color, 'data-pc') + customSw('pc');
+    const pt = SET.pen.type;
     if (t === 'pen') {
-      h = `<div class="seg" role="group" aria-label="Pen type">${PEN_TYPES.map(([k, l]) => `<button data-pt="${k}" aria-pressed="${SET.pen.type === k}" title="${l}">${icon(k)}<span>${l.split(' ')[0]}</span></button>`).join('')}</div>
-        <span class="sep"></span>${penColours()}<span class="sep"></span>${sizes(PEN[SET.pen.type].pre, SET.pen.size[SET.pen.type], PEN[SET.pen.type].rng, 'data-psz')}`;
+      h = `<button class="chip" data-penchip aria-haspopup="true" title="Choose pen">${icon(pt)}<span>${PEN[pt].label}</span>${chev}</button>
+        ${penSwatches()}${sizes(PEN[pt].pre, SET.pen.size[pt], 'data-psz', 1.15)}`;
     } else if (t === 'hl') {
-      h = `<span class="lbl">Highlighter</span>${swatches(HL_COLORS, SET.hl.color, 'data-hc')}${customSw('hc')}<span class="sep"></span>${sizes(HL_PRE, SET.hl.size, HL_RNG, 'data-hsz')}
-        <span class="sep"></span><button class="chk" data-hstraight aria-pressed="${SET.hl.straight}"><span class="box">${SET.hl.straight ? '✓' : ''}</span>Straight lines</button>`;
+      h = `${hlSwatches()}${sizes(HL_PRE, SET.hl.size, 'data-hsz', 0.6)}
+        <button class="chk" data-hstraight aria-pressed="${SET.hl.straight}"><span class="box">${SET.hl.straight ? '✓' : ''}</span>Straight lines</button>`;
     } else if (t === 'eraser') {
       h = `<div class="seg" role="group" aria-label="Eraser type"><button data-em="stroke" aria-pressed="${SET.eraser.mode === 'stroke'}">Whole strokes</button><button data-em="pixel" aria-pressed="${SET.eraser.mode === 'pixel'}">Precise</button></div>
-        <span class="sep"></span>${sizes(ER_PRE, SET.eraser.size, ER_RNG, 'data-esz')}<span class="sep"></span>
+        ${sizes(ER_PRE, SET.eraser.size, 'data-esz', 0.42)}
         <button class="chk" data-ehl aria-pressed="${SET.eraser.hlOnly}"><span class="box">${SET.eraser.hlOnly ? '✓' : ''}</span>Highlighter only</button>
-        <button class="btn ghost" data-clearpage>${icon('trash')}Clear page</button>`;
+        <button class="chip" data-clearpage>${icon('trash')}<span>Clear page</span></button>`;
     } else if (t === 'lasso') {
-      h = `<span class="hint">Draw a loop around ink, text or pictures — then drag to move, pull the corner dot to resize, or delete.</span>${CLIP ? `<button class="btn" data-paste>${icon('copy')}Paste</button>` : ''}`;
+      h = `<span class="hint">Draw a loop around ink, text or pictures. Then drag to move, pull the corner dot to resize, or use the menu above it.</span>${CLIP ? `<button class="chip" data-paste>${icon('copy')}<span>Paste</span></button>` : ''}`;
     } else if (t === 'shape') {
-      h = `<div class="seg" role="group" aria-label="Shape">${[['line', 'Line'], ['arrow', 'Arrow'], ['rect', 'Rectangle'], ['ellipse', 'Ellipse'], ['tri', 'Triangle']].map(([k, l]) => `<button data-sk="${k}" aria-pressed="${SET.shape.kind === k}" title="${l}">${icon(k)}</button>`).join('')}</div>
-        <span class="sep"></span>${penColours()}<span class="sep"></span>${sizes(PEN[SET.pen.type].pre, SET.pen.size[SET.pen.type], PEN[SET.pen.type].rng, 'data-psz')}`;
+      const sk = SHAPES.find(x => x[0] === SET.shape.kind) || SHAPES[0];
+      h = `<div class="seg" role="group" aria-label="Shape">${SHAPES.map(([k, l]) => `<button data-sk="${k}" aria-pressed="${SET.shape.kind === k}" title="${l}" aria-label="${l}">${icon(k)}</button>`).join('')}</div>
+        ${penSwatches()}${sizes(PEN[pt].pre, SET.pen.size[pt], 'data-psz', 1.15)}`;
     } else if (t === 'text') {
-      h = `<div class="seg" role="group" aria-label="Text size">${[[18, 'Small'], [26, 'Normal'], [36, 'Large'], [52, 'Title']].map(([v, l]) => `<button data-fs="${v}" aria-pressed="${SET.text.fs === v}">${l}</button>`).join('')}</div>
-        <span class="sep"></span>${penColours()}<span class="hint">Tap the page to type; tap text again to edit it.</span>`;
+      h = `<div class="seg" role="group" aria-label="Text size">${TEXT_SIZES.map(([v, l]) => `<button data-fs="${v}" aria-pressed="${SET.text.fs === v}">${l}</button>`).join('')}</div>
+        ${penSwatches()}<span class="hint">Tap the page to type. Tap text again to edit it.</span>`;
     }
     sub.innerHTML = h;
+  }
+  /* pen chooser with a live sample of every pen */
+  function penPop(anchor) {
+    const p = popMenu(anchor, [{html: `<div class="pophead">Pen</div><div class="penlist">${PEN_TYPES.map(([k, l]) => `<button class="penrow" data-pt="${k}" aria-pressed="${SET.pen.type === k}">${icon(k)}<span class="nm">${l}</span><canvas width="300" height="60"></canvas></button>`).join('')}</div>`}], {alignLeft: true});
+    $$('.penrow', p).forEach(row => {
+      const k = row.dataset.pt, cv = $('canvas', row), g = cv.getContext('2d');
+      g.setTransform(2, 0, 0, 2, 0, 0);
+      const pts = [];
+      for (let i = 0; i <= 60; i++) { const t = i / 60; pts.push(8 + t * 134, 15 - Math.sin(t * Math.PI * 2.2) * 8, 0.25 + 0.75 * Math.sin(t * Math.PI)); }
+      const w = {ball: 1.8, fount: 3.2, brush: 5.5, pencil: 2.2, marker: 4.5}[k];
+      drawItem(g, {t: 's', k, c: SET.pen.color === '#FFFFFF' ? '#1C2027' : SET.pen.color, w, p: new Float32Array(pts)}, false);
+    });
+    p.addEventListener('click', e => {
+      const r = e.target.closest('[data-pt]'); if (!r) return;
+      SET.pen.type = r.dataset.pt; if (SET.tool !== 'pen' && SET.tool !== 'shape') SET.tool = 'pen';
+      saveSettings(); closePop(); setTool(SET.tool);
+    });
+  }
+  function colourPop(anchor) {
+    const all = PEN_COLORS.concat(SET.custom.filter(c => !PEN_COLORS.includes(c)));
+    const p = popMenu(anchor, [{html: `<div class="pophead">Colours</div><div class="palette">${all.map(c => sw(c, SET.pen.color, 'data-pc')).join('')}
+      <label class="sw custom" title="Custom colour"><input type="color" data-custom="pc" value="${SET.pen.color.toLowerCase()}" aria-label="Custom colour"></label></div>`}], {alignLeft: true});
+    p.addEventListener('click', e => { const s = e.target.closest('[data-pc]'); if (!s) return; SET.pen.color = s.dataset.pc; saveSettings(); closePop(); renderTools(); renderSub(); });
+    p.addEventListener('change', e => { const r = e.target; if (!r.dataset.custom) return; setCustom(r.value.toUpperCase()); closePop(); });
+  }
+  function setCustom(c) {
+    SET.pen.color = c; if (!PEN_COLORS.includes(c)) SET.custom = [c].concat(SET.custom.filter(x => x !== c)).slice(0, 6);
+    saveSettings(); renderTools(); renderSub();
+  }
+  function sizePop(anchor, kind) {   // exact size slider
+    const get = () => kind === 'psz' ? SET.pen.size[SET.pen.type] : kind === 'hsz' ? SET.hl.size : SET.eraser.size;
+    const rng = kind === 'psz' ? PEN[SET.pen.type].rng : kind === 'hsz' ? HL_RNG : ER_RNG;
+    const p = popMenu(anchor, [{html: `<div class="szpop"><span style="font-size:12px;font-weight:700;color:var(--muted)">SIZE</span>
+      <input type="range" id="szp" min="${rng[0]}" max="${rng[1]}" step="0.2" value="${get()}" aria-label="Size"><b id="szv" style="min-width:34px;font-variant-numeric:tabular-nums">${get().toFixed(1)}</b></div>`}], {alignLeft: true});
+    const r = $('#szp', p);
+    r.oninput = () => { const v = +r.value; if (kind === 'psz') SET.pen.size[SET.pen.type] = v; else if (kind === 'hsz') SET.hl.size = v; else SET.eraser.size = v; $('#szv', p).textContent = v.toFixed(1); saveSettings(); };
+    r.onchange = () => renderSub();
   }
   sub.addEventListener('click', async e => {
     const b = e.target.closest('button'); if (!b) return;
     const d = b.dataset;
-    if ((d.psz || d.hsz || d.esz) && b.getAttribute('aria-pressed') === 'true' && innerWidth < 900) { sizePop(b, d.psz ? 'psz' : d.hsz ? 'hsz' : 'esz'); return; }
-    if (d.pt) { SET.pen.type = d.pt; }
-    else if (d.pc) { SET.pen.color = d.pc; }
+    if ('penchip' in d) { penPop(b); return; }
+    if ('morecol' in d) { colourPop(b); return; }
+    if (d.szmore) { sizePop(b, d.szmore.replace('data-', '')); return; }
+    if ((d.psz || d.hsz || d.esz) && b.getAttribute('aria-pressed') === 'true') { sizePop(b, d.psz ? 'psz' : d.hsz ? 'hsz' : 'esz'); return; }
+    if (d.pc) { SET.pen.color = d.pc; }
     else if (d.hc) { SET.hl.color = d.hc; }
     else if (d.psz) { SET.pen.size[SET.pen.type] = +d.psz; }
     else if (d.hsz) { SET.hl.size = +d.hsz; }
@@ -1950,56 +2074,40 @@ const UI = (() => {
     else return;
     saveSettings(); renderTools(); renderSub();
   });
-  sub.addEventListener('input', e => {
-    const r = e.target;
-    if (r.type === 'range') {
-      const v = +r.value;
-      if (r.hasAttribute('data-psz-r')) SET.pen.size[SET.pen.type] = v;
-      else if (r.hasAttribute('data-hsz-r')) SET.hl.size = v;
-      else if (r.hasAttribute('data-esz-r')) SET.eraser.size = v;
-      const val = r.nextElementSibling; if (val) val.textContent = v.toFixed(v < 10 ? 1 : 0);
-      $$('.sz', sub).forEach(s => s.setAttribute('aria-pressed', 'false'));
-      saveSettings();
-    }
-  });
   sub.addEventListener('change', e => {
     const r = e.target; if (!r.dataset.custom) return;
-    const c = r.value.toUpperCase();
-    if (r.dataset.custom === 'hc') SET.hl.color = c;
-    else { SET.pen.color = c; if (!PEN_COLORS.includes(c)) SET.custom = [c].concat(SET.custom.filter(x => x !== c)).slice(0, 4); }
-    saveSettings(); renderTools(); renderSub();
+    if (r.dataset.custom === 'hc') { SET.hl.color = r.value.toUpperCase(); saveSettings(); renderTools(); renderSub(); }
+    else setCustom(r.value.toUpperCase());
   });
-  function sizePop(anchor, kind) {   // fine size control on narrow screens
-    const get = () => kind === 'psz' ? SET.pen.size[SET.pen.type] : kind === 'hsz' ? SET.hl.size : SET.eraser.size;
-    const rng = kind === 'psz' ? PEN[SET.pen.type].rng : kind === 'hsz' ? HL_RNG : ER_RNG;
-    const p = popMenu(anchor, [{html: `<div style="display:flex;align-items:center;gap:10px;padding:10px 12px"><span class="lbl" style="font-size:12px;color:var(--muted)">Size</span>
-      <input type="range" id="szp" min="${rng[0]}" max="${rng[1]}" step="0.2" value="${get()}" style="width:180px;accent-color:var(--accent)"><b id="szv" style="min-width:34px">${get().toFixed(1)}</b></div>`}], {alignLeft: true});
-    const r = $('#szp', p);
-    r.oninput = () => { const v = +r.value; if (kind === 'psz') SET.pen.size[SET.pen.type] = v; else if (kind === 'hsz') SET.hl.size = v; else SET.eraser.size = v; $('#szv', p).textContent = v.toFixed(1); saveSettings(); };
-    r.onchange = () => renderSub();
-  }
   function updateUndo() { $('#b-undo').disabled = !HIST.u.length; $('#b-redo').disabled = !HIST.r.length; }
   function hand() {
     const b = $('#b-hand'); b.setAttribute('aria-pressed', String(SET.penOnly));
     b.title = SET.penOnly ? 'Pen only is ON — fingers scroll and zoom' : 'Pen only is OFF — one finger draws, two fingers scroll';
   }
+  function meta() {
+    if (!NB) return;
+    const isPdf = PAGES.some(p => p.pdf);
+    const kind = isPdf ? 'PDF' : ((TEMPLATES.find(t => t[0] === (PAGES[0] && PAGES[0].tpl)) || ['', 'Notebook'])[1]);
+    $('#b-meta').innerHTML = `<span class="kind">${esc(kind)}</span><span>${PAGES.length} page${PAGES.length === 1 ? '' : 's'}</span><span class="${status}">${status === 'saved' ? 'Saved' : 'Saving…'}</span>`;
+  }
+  function saveState(s) { if (s !== status) { status = s; meta(); } }
   function pageInfo() {
     if ($('#ed').hidden) return;
     const s = `${View.currentIndex() + 1} / ${PAGES.length}`;
-    if (s !== lastPI) { lastPI = s; $('#b-pages').textContent = s; }
+    if (s !== lastPI) { lastPI = s; $('#b-pages').textContent = s; meta(); }
   }
   function zoomInfo() {
     const s = Math.round(View.z / View.fit() * 100) + '%';
     if (s !== lastZI) { lastZI = s; $('#b-zoom').textContent = s; }
   }
-  return {tools: renderTools, sub: renderSub, updateUndo, hand, pageInfo, zoomInfo};
+  return {tools: renderTools, sub: renderSub, updateUndo, hand, pageInfo, zoomInfo, meta, saveState};
 })();
 
 /* ---------- static buttons ---------- */
-$('#b-back').innerHTML = icon('back');
+$('#b-back').innerHTML = icon('back') + '<span class="lb">Notebooks</span>';
 $('#b-undo').innerHTML = icon('undo'); $('#b-redo').innerHTML = icon('redo');
 $('#b-hand').innerHTML = icon('hand'); $('#b-paper').innerHTML = icon('paper');
-$('#b-share').innerHTML = icon('share'); $('#b-more').innerHTML = icon('more');
+$('#b-share').innerHTML = icon('share') + '<span>Share</span>'; $('#b-more').innerHTML = icon('more');
 $('#b-addpage').innerHTML = icon('plus');
 $('#b-import').innerHTML = icon('pdf') + '<span>Import PDF</span>';
 $('#b-new').innerHTML = icon('plus') + '<span>New notebook</span>';
@@ -2015,9 +2123,10 @@ $('#b-share').onclick = () => shareSheet();
 $('#b-back').onclick = () => history.state && history.state.ink ? history.back() : closeNotebook();
 $('#b-title').onclick = async () => {
   const t = await askText('Rename notebook', NB.title, 'Rename'); if (!t) return;
-  NB.title = t; $('#b-title').textContent = t; touch(null);
+  NB.title = t; $('#b-title').textContent = t; touch(null); UI.meta();
 };
 $('#b-more').onclick = e => popMenu(e.currentTarget, [
+  {label: 'Paper & background', icon: 'paper', act: () => paperSheet()},
   {label: 'Fit page width', icon: 'fit', act: () => View.setFit(true)},
   {label: 'All pages', icon: 'pages', act: () => pagesSheet()},
   {label: 'Add page', icon: 'plus', act: () => addPageAfter(View.currentIndex())},
@@ -2167,7 +2276,7 @@ async function openNotebook(id) {
   if (!PAGES.length) PAGES = [newPage(nb.paper && nb.paper.tpl, nb.paper && nb.paper.color, nb.paper && nb.paper.orient)];
   relayout();
   $('#lib').hidden = true; $('#ed').hidden = false;
-  $('#b-title').textContent = nb.title;
+  $('#b-title').textContent = nb.title; UI.saveState('saved'); UI.meta();
   UI.tools(); UI.sub(); UI.updateUndo(); UI.hand(); setTool(SET.tool === 'image' ? 'pen' : SET.tool);
   for (let i = 0; i < 40; i++) { const r = $('#stage').getBoundingClientRect(); if (r.width > 50 && r.height > 50) break; await sleep(50); }
   Render.resize();
@@ -2198,12 +2307,15 @@ async function renderLibrary() {
   if (q) nbs = nbs.filter(n => n.title.toLowerCase().includes(q));
   coverURLs.splice(0).forEach(u => URL.revokeObjectURL(u));
   const thumbs = await Promise.all(nbs.map(n => DB.get('thumb', n.id).catch(() => null)));
-  grid.innerHTML = `<button class="nbcard newcard" id="b-new2"><div class="cover"><span>${icon('plus')}New notebook</span></div></button>` +
+  const total = (await DB.all('nb').catch(() => [])).length;
+  $('#libsum').textContent = total ? `${total} notebook${total === 1 ? '' : 's'} · saved on this tablet` : 'Everything you write is saved on this tablet.';
+  grid.innerHTML = `<div class="nbcard newcard"><button class="cover" id="b-new2" aria-label="New notebook"><span><span class="plus">${icon('plus')}</span>New notebook</span></button>
+      <div class="nbmeta"><div><div class="t">Blank notebook</div><div class="d">or import a PDF to write on</div></div></div></div>` +
     nbs.map((n, i) => {
       let img = '';
       if (thumbs[i] && thumbs[i].blob) { const u = URL.createObjectURL(thumbs[i].blob); coverURLs.push(u); img = `<img src="${u}" alt="">`; }
-      return `<div class="nbcard" data-nb="${n.id}"><button class="cover" data-open="${n.id}" aria-label="Open ${esc(n.title)}">${img}${n.pdfName ? '<span class="tag">PDF</span>' : ''}</button>
-        <div class="nbmeta"><div><div class="t">${esc(n.title)}</div><div class="d">${fmtAgo(n.updated)} · ${n.pages.length} page${n.pages.length === 1 ? '' : 's'}</div></div>
+      return `<div class="nbcard" data-nb="${n.id}"><button class="cover" data-open="${n.id}" aria-label="Open ${esc(n.title)}"><span class="pp">${img}</span><span class="spine"></span>${n.pdfName ? '<span class="tag">PDF</span>' : ''}</button>
+        <div class="nbmeta"><div><div class="t">${esc(n.title)}</div><div class="d">${n.pages.length} page${n.pages.length === 1 ? '' : 's'} · ${fmtAgo(n.updated)}</div></div>
         <button class="more" data-nbm="${n.id}" aria-label="Options for ${esc(n.title)}">${icon('more')}</button></div></div>`;
     }).join('') + (!nbs.length && q ? `<p class="empty">No notebook matches “${esc(q)}”.</p>` : '');
   // covers that are missing (e.g. after a restore) are generated in the background
